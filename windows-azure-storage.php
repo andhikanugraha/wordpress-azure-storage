@@ -97,14 +97,6 @@ function azure_storage_media_menu($tabs) {
   return array_merge($tabs, $newtab);
 }
 
-// Hook for adding tabs
-add_filter('media_upload_tabs', 'azure_storage_media_menu');
-
-// Add callback for three tabs in the Windows Azure Storage Dialog
-add_action("media_upload_browse", "browse_tab");
-add_action("media_upload_search", "search_tab");
-add_action("media_upload_upload", "upload_tab");
-
 // Hooks for handling default file uploads
 if (get_option('azure_storage_use_for_default_upload') == 1) {
     add_filter(
@@ -126,6 +118,15 @@ if (get_option('azure_storage_use_for_default_upload') == 1) {
     // Filter to modify file name when XML-RPC is used
     //TODO: remove this filter when wp_unique_filename filter is available in WordPress
     add_filter( 'xmlrpc_methods', 'windows_azure_storage_xmlrpc_methods');
+}
+else {
+    // Hook for adding tabs
+    add_filter('media_upload_tabs', 'azure_storage_media_menu');
+
+    // Add callback for three tabs in the Microsoft Azure Storage Dialog
+    add_action("media_upload_browse", "browse_tab");
+    add_action("media_upload_search", "search_tab");
+    add_action("media_upload_upload", "upload_tab");
 }
 
 // Hook for acecssing attachment (media file) URL
