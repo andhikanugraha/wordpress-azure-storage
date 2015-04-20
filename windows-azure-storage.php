@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name: Windows Azure Storage for WordPress
+ * Plugin Name: Microsoft Azure Storage for WordPress
  * 
  * Plugin URI: http://www.wordpress.org/extend/plugins/windows-azure-storage/
  * 
- * Description: This WordPress plugin allows you to use Windows Azure Storage Service to host your media for your WordPress powered blog.
+ * Description: This WordPress plugin allows you to use Microsoft Azure Storage Service to host your media for your WordPress powered blog.
  * 
- * Version: 2.2
+ * Version: 2.2-branch
  * 
  * Author: Microsoft Open Technologies, Inc.
  * 
@@ -45,11 +45,11 @@
  */
 
 /**
- * 'Windows Azure SDK for PHP v<TODO>' and its dependencies are included 
- * in the library directory, this will override 'Windows Azure SDK
+ * 'Microsoft Azure SDK for PHP v<TODO>' and its dependencies are included 
+ * in the library directory, this will override 'Microsoft Azure SDK
  * for PHP' is already installed in the machine if USESDKINSTALLEDGLOBALLY
  * is not defined.
- * 'Windows Azure SDK for PHP' provide access to underlying Windows Azure 
+ * 'Microsoft Azure SDK for PHP' provide access to underlying Microsoft Azure 
  * Blob Storage
  * https://github.com/windowsazure/azure-sdk-for-php/
  */
@@ -84,7 +84,7 @@ add_action('admin_menu', 'windows_azure_storage_plugin_menu');
 add_filter('media_buttons_context', 'windows_azure_storage_media_buttons_context');
 
 /**
- * Define and return tabs for Windows Azure Storage Dialog.
+ * Define and return tabs for Microsoft Azure Storage Dialog.
  *
  * @param array  $tabs  Array of existing tabs.
  *
@@ -161,10 +161,10 @@ function check_prerequisite()
         return;
     }
 
-    // Windows Azure SDK for PHP is not available
+    // Microsoft Azure SDK for PHP is not available
     $message = '<p style="color: red"><a href="https://github.com/windowsazure/azure-sdk-for-php/">'
-        . 'Windows Azure SDK for PHP</a> is not found. ' 
-        . 'Please download and copy the Windows Azure SDK for PHP to library directory and dependencies to '
+        . 'Microsoft Azure SDK for PHP</a> is not found. ' 
+        . 'Please download and copy the Microsoft Azure SDK for PHP to library directory and dependencies to '
         . 'to dependencies directory </p>';
 
     if (function_exists('deactivate_plugins')) { 
@@ -528,7 +528,7 @@ function windows_azure_storage_wp_handle_upload($uploads)
 
 /**
  * Common function to replace wordpress file uplaod url with 
- * Windows Azure Storage URLs
+ * Microsoft Azure Storage URLs
  *
  * @param string $url original upload URL
  *
@@ -620,7 +620,7 @@ function windows_azure_storage_media_buttons_context($context)
     global $post_ID, $temp_ID;
     
     $image_btn = "../wp-content/plugins/windows-azure-storage/images/WindowsAzure.jpg";
-    $image_title = 'Windows Azure Storage';
+    $image_title = 'Microsoft Azure Storage';
     
     $uploading_iframe_ID = (int)(0 == $post_ID ? $temp_ID : $post_ID);
     $media_upload_iframe_src = "media-upload.php?post_id=$uploading_iframe_ID";
@@ -656,15 +656,15 @@ function windows_azure_storage_media_buttons_context($context)
 }
 
 /**
- * Add option page for Windows Azure Storage Plugin
+ * Add option page for Microsoft Azure Storage Plugin
  * 
  * @return void
  */
 function windows_azure_storage_plugin_menu()
 {
     add_options_page(
-        'Windows Azure Storage Plugin Settings', 
-        'Windows Azure', 
+        'Microsoft Azure Storage Plugin Settings', 
+        'Microsoft Azure', 
         'manage_options', 
         'b5506889-50de-42db-bf63-e9f248ca94e9', 
         'windows_azure_storage_plugin_options_page'

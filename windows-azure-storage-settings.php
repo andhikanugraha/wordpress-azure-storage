@@ -2,7 +2,7 @@
 /**
  * windows-azure-storage-settings.php
  * 
- * Shows various settings for Windows Azure Storage Plugin
+ * Shows various settings for Microsoft Azure Storage Plugin
  * 
  * Version: 2.2
  * 
@@ -86,27 +86,26 @@ function windows_azure_storage_plugin_options_page()
 
   </script>
     <div class="wrap">
-      <h2>
-          <img src="../wp-content/plugins/windows-azure-storage/images/WindowsAzure.jpg" 
-          width="32" height="32"/>Windows Azure Storage for WordPress</h2>
+      <h2>Microsoft Azure Storage for WordPress</h2>
 
-          This WordPress plugin allows you to use Windows Azure Storage Service to 
-          host your media for your WordPress powered blog. Windows Azure provides 
+          <p>This WordPress plugin allows you to use Microsoft Azure Storage Service to 
+          host your media for your WordPress powered blog. Microsoft Azure provides 
           storage in the cloud with authenticated access and triple replication to 
           help keep your data safe. Applications work with data using REST conventions 
           and standard HTTP operations to identify and expose data using URIs. This 
           plugin allows you to easily upload, retrieve, and link to files stored on 
-          Windows Azure Storage service from within WordPress. <br/><br/>
+          Microsoft Azure Storage service from within WordPress.<p>
 
-          For more details on Windows Azure Storage Services, please visit the 
-          <a href="http://www.microsoft.com/azure/windowsazure.mspx">Windows Azure 
-          Platform web-site</a>.<br/>
+          <p>For more details on Microsoft Azure Storage Services, please visit the 
+          <a href="http://azure.microsoft.com/">Microsoft Azure website</a>.</p>
 
-          <p>This plugin uses Windows Azure SDK for PHP (<a 
-          href="https://github.com/WindowsAzure/azure-sdk-for-php/">https://github.com/WindowsAzure/azure-sdk-for-php/</a>). </p>
+          <p>This plugin uses Microsoft Azure SDK for PHP (<a 
+          href="https://github.com/WindowsAzure/azure-sdk-for-php/">https://github.com/WindowsAzure/azure-sdk-for-php/</a>).</p>
+
+          <p>
           <b>Plugin Web Site:</b> 
           <a href="http://wordpress.org/extend/plugins/windows-azure-storage/">
-          http://wordpress.org/extend/plugins/windows-azure-storage/</a><br/><br/>
+          http://wordpress.org/extend/plugins/windows-azure-storage/</a></p>
     </div>
 
     <div>
@@ -114,10 +113,10 @@ function windows_azure_storage_plugin_options_page()
          <tr>
              <td>
                  <div id="icon-options-general" class="icon32"><br/></div>
-                 <h2>Windows Azure Storage Settings</h2>
-                 <p>If you do not have Windows Azure Storage Account, please 
+                 <h2>Microsoft Azure Storage Settings</h2>
+                 <p>If you do not have Microsoft Azure Storage Account, please 
                  <a href="http://go.microsoft.com/fwlink/?LinkID=129453">register
-                 </a>for Windows Azure Services.</p>
+                 </a>for Microsoft Azure Services.</p>
                     <form method="post" name="SettingsForm" action="options.php">
                         <?php
                             settings_fields('windows-azure-storage-settings-group');
@@ -136,7 +135,7 @@ function windows_azure_storage_plugin_options_page()
 }
 
 /**
- * Register custom settings for Windows Azure Storage Plugin
+ * Register custom settings for Microsoft Azure Storage Plugin
  * 
  * @return void
  */
@@ -197,7 +196,7 @@ function createContainerIfRequired(&$success)
 }
 
 /**
- * Render Windows Azure Storage Plugin Options Screen
+ * Render Microsoft Azure Storage Plugin Options Screen
  * 
  * @param string $mode mode for logged in user (admin/nonadmin)
  * 
@@ -280,10 +279,10 @@ function show_windows_azure_storage_settings($mode)
     <table class="form-table" border="0">
       <tr valign="top">
         <th scope="row">
-          <label for="storage_account_name" title="Windows Azure Storage Account Name">Store Account Name</label>
+          <label for="storage_account_name" title="Microsoft Azure Storage Account Name">Storage Account Name</label>
         </th>
         <td>
-          <input type="text" name="azure_storage_account_name" title="Windows Azure Storage Account Name" value="<?php
+          <input type="text" name="azure_storage_account_name" title="Microsoft Azure Storage Account Name" value="<?php
     echo $storageAccountName; ?>" />
         </td>
         <td></td>
@@ -291,10 +290,10 @@ function show_windows_azure_storage_settings($mode)
 
       <tr valign="top">
         <th scope="row">
-          <label for="azure_storage_account_primary_access_key" title="Windows Azure Storage Account Primary Access Key">Primary Access Key</label>
+          <label for="azure_storage_account_primary_access_key" title="Microsoft Azure Storage Account Primary Access Key">Primary Access Key</label>
         </th>
         <td>
-          <input type="text" name="azure_storage_account_primary_access_key" title="Windows Azure Storage Account Primary Access Key" value="<?php
+          <input type="text" name="azure_storage_account_primary_access_key" title="Microsoft Azure Storage Account Primary Access Key" value="<?php
     echo $storageAccountKey; ?>" />
         </td>
         <td></td>
@@ -342,10 +341,10 @@ function show_windows_azure_storage_settings($mode)
     </tr>
       <tr valign="top">
         <th scope="row">
-          <label for="cname" title="Use CNAME insted of Windows Azure Blob URL">CNAME</label>
+          <label for="cname" title="Use CNAME insted of Microsoft Azure Blob URL">CNAME</label>
         </th>
         <td colspan="2">
-          <input type="text" name="cname" title="Use CNAME insted of Windows Azure Blob URL" value="<?php
+          <input type="text" name="cname" title="Use CNAME insted of Microsoft Azure Blob URL" value="<?php
     echo WindowsAzureStorageUtil::getCNAME(); ?>" />
             <br /><small>Note: Use this option if you would like to display image urls belonging to your domain like http://MyDomain.com/ 
                   instead of http://YourAccountName.blob.core.windows.net/.</small>
@@ -399,13 +398,13 @@ function show_windows_azure_storage_settings($mode)
 
       <tr valign="top">
         <th scope="row">
-          <label for="azure_storage_use_for_default_upload" title="Use Windows Azure Storage for default upload">Use Windows Azure Storage for default upload</label>
+          <label for="azure_storage_use_for_default_upload" title="Use Microsoft Azure Storage for default upload">Use Microsoft Azure Storage for default upload</label>
         </th>
         <td colspan="2">
-            <input type="checkbox" name="azure_storage_use_for_default_upload" title="Use Windows Azure Storage for default upload" value="1" id="azure_storage_use_for_default_upload" 
+            <input type="checkbox" name="azure_storage_use_for_default_upload" title="Use Microsoft Azure Storage for default upload" value="1" id="azure_storage_use_for_default_upload" 
                        <?php
     echo (get_option('azure_storage_use_for_default_upload') ? 'checked="checked" ' : ''); ?> />
-            <label for="wp-uploads"> Use Windows Azure Storage when uploading via WordPress' upload tab.</label>
+            <label for="wp-uploads"> Use Microsoft Azure Storage when uploading via WordPress' upload tab.</label>
             <br /><small>Note: Uncheck this to revert back to using your own web host for storage at anytime.</small>
         </td>
       </tr>
